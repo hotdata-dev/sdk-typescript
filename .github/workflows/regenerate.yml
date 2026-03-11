@@ -16,12 +16,15 @@ jobs:
           curl -sL https://raw.githubusercontent.com/hotdata-dev/www.hotdata.dev/main/api/openapi.yaml \
             -o openapi.yaml
 
+      - name: Clean existing source
+        run: rm -rf src/
+
       - name: Generate client
         run: |
           npx @openapitools/openapi-generator-cli generate \
             -i openapi.yaml \
             -g typescript-fetch \
-            -o generated/ \
+            -o . \
             --additional-properties=npmName=@hotdata/sdk,supportsES6=true,typescriptThreePlus=true
 
       - name: Create PR
