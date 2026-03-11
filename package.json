@@ -1,0 +1,16 @@
+{
+  "name": "@hotdata/sdk",
+  "version": "0.1.0",
+  "description": "TypeScript client for the HotData API",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.7"
+  }
+}
