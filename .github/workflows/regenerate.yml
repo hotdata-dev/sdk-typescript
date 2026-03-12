@@ -19,6 +19,10 @@ jobs:
         with:
           token: ${{ steps.app-token.outputs.token }}
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Fetch merged OpenAPI spec
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -41,14 +45,19 @@ jobs:
             --additional-properties=npmName=@hotdata/sdk,supportsES6=true,typescriptThreePlus=true \
             --skip-validate-spec
 
-      - name: Clean up fetched spec
+      - name: Clean up generated artifacts
         run: rm -f openapi.yaml
+
+      - name: Verify generated client compiles
+        run: |
+          npm install
+          npx tsc --noEmit
 
       - name: Create PR
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ steps.app-token.outputs.token }}
           title: "chore: regenerate client from updated OpenAPI spec"
-          branch: openapi-update
+          branch: openapi-update-${{ github.run_id }}
           commit-message: "chore: regenerate client from OpenAPI spec"
           body: "Auto-generated from updated HotData OpenAPI spec."
