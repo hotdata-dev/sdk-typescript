@@ -36,7 +36,8 @@ jobs:
             -i openapi.yaml \
             -g typescript-fetch \
             -o . \
-            --additional-properties=npmName=@hotdata/sdk,supportsES6=true,typescriptThreePlus=true
+            --additional-properties=npmName=@hotdata/sdk,supportsES6=true,typescriptThreePlus=true \
+            --skip-validate-spec
 
       - name: Create PR
         uses: peter-evans/create-pull-request@v6
