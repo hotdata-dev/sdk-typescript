@@ -1,0 +1,151 @@
+# UploadsApi
+
+All URIs are relative to *https://app.hotdata.dev*
+
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**listUploads**](UploadsApi.md#listuploads) | **GET** /v1/files | List uploads |
+| [**uploadFile**](UploadsApi.md#uploadfile) | **POST** /v1/files | Upload file |
+
+
+
+## listUploads
+
+> ListUploadsResponse listUploads(status)
+
+List uploads
+
+### Example
+
+```ts
+import {
+  Configuration,
+  UploadsApi,
+} from '@hotdata/sdk';
+import type { ListUploadsRequest } from '@hotdata/sdk';
+
+async function example() {
+  console.log("🚀 Testing @hotdata/sdk SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: BearerAuth
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new UploadsApi(config);
+
+  const body = {
+    // string | Filter by upload status (optional)
+    status: status_example,
+  } satisfies ListUploadsRequest;
+
+  try {
+    const data = await api.listUploads(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **status** | `string` | Filter by upload status | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**ListUploadsResponse**](ListUploadsResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of uploads |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## uploadFile
+
+> UploadResponse uploadFile(requestBody)
+
+Upload file
+
+Upload a file to be used as a dataset source. Send the raw file bytes as the request body with an appropriate Content-Type header (e.g., &#x60;text/csv&#x60;, &#x60;application/json&#x60;, &#x60;application/parquet&#x60;). The returned upload ID can be passed to POST /v1/datasets to create a queryable table.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  UploadsApi,
+} from '@hotdata/sdk';
+import type { UploadFileRequest } from '@hotdata/sdk';
+
+async function example() {
+  console.log("🚀 Testing @hotdata/sdk SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: BearerAuth
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new UploadsApi(config);
+
+  const body = {
+    // Array<number>
+    requestBody: ...,
+  } satisfies UploadFileRequest;
+
+  try {
+    const data = await api.uploadFile(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestBody** | `Array<number>` |  | |
+
+### Return type
+
+[**UploadResponse**](UploadResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/octet-stream`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | File uploaded |  -  |
+| **400** | Invalid request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
