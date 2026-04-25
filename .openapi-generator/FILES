@@ -1,6 +1,5 @@
 .gitignore
 .npmignore
-.openapi-generator-ignore
 README.md
 docs/ApiErrorDetail.md
 docs/ApiErrorResponse.md
@@ -32,6 +31,7 @@ docs/CreateDatasetResponse.md
 docs/CreateEmbeddingProviderRequest.md
 docs/CreateEmbeddingProviderResponse.md
 docs/CreateIndexRequest.md
+docs/CreateSandboxRequest.md
 docs/CreateSavedQueryRequest.md
 docs/CreateSecretRequest.md
 docs/CreateSecretResponse.md
@@ -41,6 +41,7 @@ docs/DatasetSource.md
 docs/DatasetSummary.md
 docs/DatasetVersionSummary.md
 docs/DatasetsApi.md
+docs/DeleteSandboxResponse.md
 docs/DiscoveryStatus.md
 docs/EmbeddingProviderResponse.md
 docs/EmbeddingProvidersApi.md
@@ -71,6 +72,7 @@ docs/ListIndexesResponse.md
 docs/ListJobsResponse.md
 docs/ListQueryRunsResponse.md
 docs/ListResultsResponse.md
+docs/ListSandboxesResponse.md
 docs/ListSavedQueriesResponse.md
 docs/ListSavedQueryVersionsResponse.md
 docs/ListSecretsResponse.md
@@ -91,6 +93,9 @@ docs/RefreshResponse.md
 docs/RefreshWarning.md
 docs/ResultInfo.md
 docs/ResultsApi.md
+docs/Sandbox.md
+docs/SandboxResponse.md
+docs/SandboxesApi.md
 docs/SavedQueriesApi.md
 docs/SavedQueryDatasetSource.md
 docs/SavedQueryDetail.md
@@ -111,6 +116,7 @@ docs/UpdateDatasetRequest.md
 docs/UpdateDatasetResponse.md
 docs/UpdateEmbeddingProviderRequest.md
 docs/UpdateEmbeddingProviderResponse.md
+docs/UpdateSandboxRequest.md
 docs/UpdateSavedQueryRequest.md
 docs/UpdateSecretRequest.md
 docs/UpdateSecretResponse.md
@@ -138,6 +144,7 @@ src/apis/QueryApi.ts
 src/apis/QueryRunsApi.ts
 src/apis/RefreshApi.ts
 src/apis/ResultsApi.ts
+src/apis/SandboxesApi.ts
 src/apis/SavedQueriesApi.ts
 src/apis/SecretsApi.ts
 src/apis/UploadsApi.ts
@@ -173,6 +180,7 @@ src/models/CreateDatasetResponse.ts
 src/models/CreateEmbeddingProviderRequest.ts
 src/models/CreateEmbeddingProviderResponse.ts
 src/models/CreateIndexRequest.ts
+src/models/CreateSandboxRequest.ts
 src/models/CreateSavedQueryRequest.ts
 src/models/CreateSecretRequest.ts
 src/models/CreateSecretResponse.ts
@@ -181,6 +189,7 @@ src/models/CreateWorkspaceResponse.ts
 src/models/DatasetSource.ts
 src/models/DatasetSummary.ts
 src/models/DatasetVersionSummary.ts
+src/models/DeleteSandboxResponse.ts
 src/models/DiscoveryStatus.ts
 src/models/EmbeddingProviderResponse.ts
 src/models/ExecuteSavedQueryRequest.ts
@@ -207,6 +216,7 @@ src/models/ListIndexesResponse.ts
 src/models/ListJobsResponse.ts
 src/models/ListQueryRunsResponse.ts
 src/models/ListResultsResponse.ts
+src/models/ListSandboxesResponse.ts
 src/models/ListSavedQueriesResponse.ts
 src/models/ListSavedQueryVersionsResponse.ts
 src/models/ListSecretsResponse.ts
@@ -223,6 +233,8 @@ src/models/RefreshRequest.ts
 src/models/RefreshResponse.ts
 src/models/RefreshWarning.ts
 src/models/ResultInfo.ts
+src/models/Sandbox.ts
+src/models/SandboxResponse.ts
 src/models/SavedQueryDatasetSource.ts
 src/models/SavedQueryDetail.ts
 src/models/SavedQuerySummary.ts
@@ -241,6 +253,7 @@ src/models/UpdateDatasetRequest.ts
 src/models/UpdateDatasetResponse.ts
 src/models/UpdateEmbeddingProviderRequest.ts
 src/models/UpdateEmbeddingProviderResponse.ts
+src/models/UpdateSandboxRequest.ts
 src/models/UpdateSavedQueryRequest.ts
 src/models/UpdateSecretRequest.ts
 src/models/UpdateSecretResponse.ts

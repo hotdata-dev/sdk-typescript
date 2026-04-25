@@ -33,7 +33,7 @@ export interface ListUploadsRequest {
 }
 
 export interface UploadFileRequest {
-    requestBody: Array<number>;
+    body: Blob;
     streaming?: boolean;
 }
 
@@ -53,6 +53,10 @@ export class UploadsApi extends runtime.BaseAPI {
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Workspace-Id"] = await this.configuration.apiKey("X-Workspace-Id"); // WorkspaceId authentication
+        }
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -95,10 +99,10 @@ export class UploadsApi extends runtime.BaseAPI {
      * Creates request options for uploadFile without sending the request
      */
     async uploadFileRequestOpts(requestParameters: UploadFileRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['requestBody'] == null) {
+        if (requestParameters['body'] == null) {
             throw new runtime.RequiredError(
-                'requestBody',
-                'Required parameter "requestBody" was null or undefined when calling uploadFile().'
+                'body',
+                'Required parameter "body" was null or undefined when calling uploadFile().'
             );
         }
 
@@ -111,6 +115,10 @@ export class UploadsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         headerParameters['Content-Type'] = 'application/octet-stream';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Workspace-Id"] = await this.configuration.apiKey("X-Workspace-Id"); // WorkspaceId authentication
+        }
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -128,7 +136,7 @@ export class UploadsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['requestBody'],
+            body: requestParameters['body'] as any,
         };
     }
 

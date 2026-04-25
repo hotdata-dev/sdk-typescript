@@ -71,6 +71,10 @@ export class InformationSchemaApi extends runtime.BaseAPI {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Workspace-Id"] = await this.configuration.apiKey("X-Workspace-Id"); // WorkspaceId authentication
+        }
+
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
             const tokenString = await token("BearerAuth", []);

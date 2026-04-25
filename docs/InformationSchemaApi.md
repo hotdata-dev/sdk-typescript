@@ -1,6 +1,6 @@
 # InformationSchemaApi
 
-All URIs are relative to *https://app.hotdata.dev*
+All URIs are relative to *https://api.hotdata.dev*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -28,6 +28,8 @@ import type { InformationSchemaRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -78,7 +80,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

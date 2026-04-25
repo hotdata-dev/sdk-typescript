@@ -1,6 +1,6 @@
 # WorkspaceContextApi
 
-All URIs are relative to *https://app.hotdata.dev*
+All URIs are relative to *https://api.hotdata.dev*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -28,13 +28,15 @@ import type { GetWorkspaceContextRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
   const api = new WorkspaceContextApi(config);
 
   const body = {
-    // string | Name of the context (unique within the catalog)
+    // string | Context key: same character rules as a dataset table name (letter or underscore first; no hyphens)
     name: name_example,
   } satisfies GetWorkspaceContextRequest;
 
@@ -55,7 +57,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **name** | `string` | Name of the context (unique within the catalog) | [Defaults to `undefined`] |
+| **name** | `string` | Context key: same character rules as a dataset table name (letter or underscore first; no hyphens) | [Defaults to `undefined`] |
 
 ### Return type
 
@@ -63,7 +65,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -99,6 +101,8 @@ import type { ListWorkspaceContextsRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -126,7 +130,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -163,6 +167,8 @@ import type { UpsertWorkspaceContextOperationRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -198,7 +204,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

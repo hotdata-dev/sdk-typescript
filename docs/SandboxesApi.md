@@ -1,33 +1,33 @@
-# SecretsApi
+# SandboxesApi
 
 All URIs are relative to *https://api.hotdata.dev*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createSecret**](SecretsApi.md#createsecretoperation) | **POST** /v1/secrets | Create secret |
-| [**deleteSecret**](SecretsApi.md#deletesecret) | **DELETE** /v1/secrets/{name} | Delete secret |
-| [**getSecret**](SecretsApi.md#getsecret) | **GET** /v1/secrets/{name} | Get secret |
-| [**listSecrets**](SecretsApi.md#listsecrets) | **GET** /v1/secrets | List secrets |
-| [**updateSecret**](SecretsApi.md#updatesecretoperation) | **PUT** /v1/secrets/{name} | Update secret |
+| [**createSandbox**](SandboxesApi.md#createsandboxoperation) | **POST** /v1/sandboxes | Create a sandbox |
+| [**deleteSandbox**](SandboxesApi.md#deletesandbox) | **DELETE** /v1/sandboxes/{public_id} | Delete sandbox |
+| [**getSandbox**](SandboxesApi.md#getsandbox) | **GET** /v1/sandboxes/{public_id} | Get sandbox |
+| [**listSandboxes**](SandboxesApi.md#listsandboxes) | **GET** /v1/sandboxes | List sandboxes |
+| [**updateSandbox**](SandboxesApi.md#updatesandboxoperation) | **PATCH** /v1/sandboxes/{public_id} | Update sandbox |
 
 
 
-## createSecret
+## createSandbox
 
-> CreateSecretResponse createSecret(createSecretRequest)
+> SandboxResponse createSandbox(createSandboxRequest)
 
-Create secret
+Create a sandbox
 
-Store a new named secret. The value is encrypted at rest and can be referenced by connections for authentication. Secret names must be unique.
+Creates a sandbox in the requested workspace. The returned &#x60;public_id&#x60; is the value to pass as &#x60;X-Session-Id&#x60; on scoped ops.
 
 ### Example
 
 ```ts
 import {
   Configuration,
-  SecretsApi,
+  SandboxesApi,
 } from '@hotdata/sdk';
-import type { CreateSecretOperationRequest } from '@hotdata/sdk';
+import type { CreateSandboxOperationRequest } from '@hotdata/sdk';
 
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
@@ -37,15 +37,15 @@ async function example() {
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
-  const api = new SecretsApi(config);
+  const api = new SandboxesApi(config);
 
   const body = {
-    // CreateSecretRequest
-    createSecretRequest: ...,
-  } satisfies CreateSecretOperationRequest;
+    // CreateSandboxRequest
+    createSandboxRequest: ...,
+  } satisfies CreateSandboxOperationRequest;
 
   try {
-    const data = await api.createSecret(body);
+    const data = await api.createSandbox(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -61,11 +61,11 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createSecretRequest** | [CreateSecretRequest](CreateSecretRequest.md) |  | |
+| **createSandboxRequest** | [CreateSandboxRequest](CreateSandboxRequest.md) |  | |
 
 ### Return type
 
-[**CreateSecretResponse**](CreateSecretResponse.md)
+[**SandboxResponse**](SandboxResponse.md)
 
 ### Authorization
 
@@ -80,26 +80,29 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Secret created |  -  |
-| **409** | Secret already exists |  -  |
+| **201** | Sandbox created |  -  |
+| **400** | Invalid JSON body or missing X-Workspace-Id header |  -  |
+| **401** | Missing or invalid authorization |  -  |
+| **403** | Not a member of the target workspace\&#39;s organization |  -  |
+| **404** | Workspace not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## deleteSecret
+## deleteSandbox
 
-> deleteSecret(name)
+> DeleteSandboxResponse deleteSandbox(publicId)
 
-Delete secret
+Delete sandbox
 
 ### Example
 
 ```ts
 import {
   Configuration,
-  SecretsApi,
+  SandboxesApi,
 } from '@hotdata/sdk';
-import type { DeleteSecretRequest } from '@hotdata/sdk';
+import type { DeleteSandboxRequest } from '@hotdata/sdk';
 
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
@@ -109,15 +112,15 @@ async function example() {
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
-  const api = new SecretsApi(config);
+  const api = new SandboxesApi(config);
 
   const body = {
-    // string | Secret name
-    name: name_example,
-  } satisfies DeleteSecretRequest;
+    // string | Public id of the sandbox.
+    publicId: publicId_example,
+  } satisfies DeleteSandboxRequest;
 
   try {
-    const data = await api.deleteSecret(body);
+    const data = await api.deleteSandbox(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -133,11 +136,11 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **name** | `string` | Secret name | [Defaults to `undefined`] |
+| **publicId** | `string` | Public id of the sandbox. | [Defaults to `undefined`] |
 
 ### Return type
 
-`void` (Empty response body)
+[**DeleteSandboxResponse**](DeleteSandboxResponse.md)
 
 ### Authorization
 
@@ -152,28 +155,28 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Secret deleted |  -  |
-| **404** | Secret not found |  -  |
+| **200** | Sandbox deleted |  -  |
+| **401** | Missing or invalid authorization |  -  |
+| **403** | Not a member of the target workspace\&#39;s organization |  -  |
+| **404** | Sandbox not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## getSecret
+## getSandbox
 
-> GetSecretResponse getSecret(name)
+> SandboxResponse getSandbox(publicId)
 
-Get secret
-
-Get metadata for a secret. The secret value is never returned.
+Get sandbox
 
 ### Example
 
 ```ts
 import {
   Configuration,
-  SecretsApi,
+  SandboxesApi,
 } from '@hotdata/sdk';
-import type { GetSecretRequest } from '@hotdata/sdk';
+import type { GetSandboxRequest } from '@hotdata/sdk';
 
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
@@ -183,15 +186,15 @@ async function example() {
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
-  const api = new SecretsApi(config);
+  const api = new SandboxesApi(config);
 
   const body = {
-    // string | Secret name
-    name: name_example,
-  } satisfies GetSecretRequest;
+    // string | Public id of the sandbox.
+    publicId: publicId_example,
+  } satisfies GetSandboxRequest;
 
   try {
-    const data = await api.getSecret(body);
+    const data = await api.getSandbox(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -207,11 +210,11 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **name** | `string` | Secret name | [Defaults to `undefined`] |
+| **publicId** | `string` | Public id of the sandbox. | [Defaults to `undefined`] |
 
 ### Return type
 
-[**GetSecretResponse**](GetSecretResponse.md)
+[**SandboxResponse**](SandboxResponse.md)
 
 ### Authorization
 
@@ -226,28 +229,30 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Secret metadata |  -  |
-| **404** | Secret not found |  -  |
+| **200** | Successful response |  -  |
+| **401** | Missing or invalid authorization |  -  |
+| **403** | Not a member of the target workspace\&#39;s organization |  -  |
+| **404** | Sandbox not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## listSecrets
+## listSandboxes
 
-> ListSecretsResponse listSecrets()
+> ListSandboxesResponse listSandboxes()
 
-List secrets
+List sandboxes
 
-List all stored secrets. Only metadata (name, timestamps) is returned — secret values are never exposed.
+Lists sandboxes for the caller in the requested workspace.
 
 ### Example
 
 ```ts
 import {
   Configuration,
-  SecretsApi,
+  SandboxesApi,
 } from '@hotdata/sdk';
-import type { ListSecretsRequest } from '@hotdata/sdk';
+import type { ListSandboxesRequest } from '@hotdata/sdk';
 
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
@@ -257,10 +262,10 @@ async function example() {
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
-  const api = new SecretsApi(config);
+  const api = new SandboxesApi(config);
 
   try {
-    const data = await api.listSecrets();
+    const data = await api.listSandboxes();
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -277,7 +282,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ListSecretsResponse**](ListSecretsResponse.md)
+[**ListSandboxesResponse**](ListSandboxesResponse.md)
 
 ### Authorization
 
@@ -292,25 +297,31 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of secrets |  -  |
+| **200** | Successful response |  -  |
+| **400** | Missing or invalid X-Workspace-Id header |  -  |
+| **401** | Missing or invalid authorization |  -  |
+| **403** | Not a member of the target workspace\&#39;s organization |  -  |
+| **404** | Workspace not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## updateSecret
+## updateSandbox
 
-> UpdateSecretResponse updateSecret(name, updateSecretRequest)
+> SandboxResponse updateSandbox(publicId, updateSandboxRequest)
 
-Update secret
+Update sandbox
+
+Partial update. Only the provided fields are changed.
 
 ### Example
 
 ```ts
 import {
   Configuration,
-  SecretsApi,
+  SandboxesApi,
 } from '@hotdata/sdk';
-import type { UpdateSecretOperationRequest } from '@hotdata/sdk';
+import type { UpdateSandboxOperationRequest } from '@hotdata/sdk';
 
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
@@ -320,17 +331,17 @@ async function example() {
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
-  const api = new SecretsApi(config);
+  const api = new SandboxesApi(config);
 
   const body = {
-    // string | Secret name
-    name: name_example,
-    // UpdateSecretRequest
-    updateSecretRequest: ...,
-  } satisfies UpdateSecretOperationRequest;
+    // string | Public id of the sandbox.
+    publicId: publicId_example,
+    // UpdateSandboxRequest
+    updateSandboxRequest: ...,
+  } satisfies UpdateSandboxOperationRequest;
 
   try {
-    const data = await api.updateSecret(body);
+    const data = await api.updateSandbox(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -346,12 +357,12 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **name** | `string` | Secret name | [Defaults to `undefined`] |
-| **updateSecretRequest** | [UpdateSecretRequest](UpdateSecretRequest.md) |  | |
+| **publicId** | `string` | Public id of the sandbox. | [Defaults to `undefined`] |
+| **updateSandboxRequest** | [UpdateSandboxRequest](UpdateSandboxRequest.md) |  | |
 
 ### Return type
 
-[**UpdateSecretResponse**](UpdateSecretResponse.md)
+[**SandboxResponse**](SandboxResponse.md)
 
 ### Authorization
 
@@ -366,8 +377,11 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Secret updated |  -  |
-| **404** | Secret not found |  -  |
+| **200** | Sandbox updated |  -  |
+| **400** | Invalid JSON body |  -  |
+| **401** | Missing or invalid authorization |  -  |
+| **403** | Not a member of the target workspace\&#39;s organization |  -  |
+| **404** | Sandbox not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

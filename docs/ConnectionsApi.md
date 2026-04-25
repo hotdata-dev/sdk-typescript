@@ -1,6 +1,6 @@
 # ConnectionsApi
 
-All URIs are relative to *https://app.hotdata.dev*
+All URIs are relative to *https://api.hotdata.dev*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -35,6 +35,8 @@ import type { CheckConnectionHealthRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -70,7 +72,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -107,6 +109,8 @@ import type { CreateConnectionOperationRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -142,7 +146,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -180,6 +184,8 @@ import type { DeleteConnectionRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -215,7 +221,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -252,6 +258,8 @@ import type { GetConnectionRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -287,7 +295,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -324,6 +332,8 @@ import type { GetTableProfileRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -365,7 +375,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -402,6 +412,8 @@ import type { ListConnectionsRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -429,7 +441,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -465,6 +477,8 @@ import type { PurgeConnectionCacheRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -500,7 +514,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -537,6 +551,8 @@ import type { PurgeTableCacheRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -578,7 +594,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

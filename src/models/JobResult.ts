@@ -12,25 +12,6 @@
  * Do not edit the class manually.
  */
 
-import type { ConnectionRefreshResult } from './ConnectionRefreshResult';
-import {
-    ConnectionRefreshResultFromJSONTyped,
-    ConnectionRefreshResultToJSON,
-    instanceOfConnectionRefreshResult,
-} from './ConnectionRefreshResult';
-import type { IndexInfoResponse } from './IndexInfoResponse';
-import {
-    IndexInfoResponseFromJSONTyped,
-    IndexInfoResponseToJSON,
-    instanceOfIndexInfoResponse,
-} from './IndexInfoResponse';
-import type { TableRefreshResult } from './TableRefreshResult';
-import {
-    TableRefreshResultFromJSONTyped,
-    TableRefreshResultToJSON,
-    instanceOfTableRefreshResult,
-} from './TableRefreshResult';
-
 /**
  * @type JobResult
  * Job-specific result payload. The shape depends on the job type.
