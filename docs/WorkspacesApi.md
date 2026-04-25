@@ -1,6 +1,6 @@
 # WorkspacesApi
 
-All URIs are relative to *https://app.hotdata.dev*
+All URIs are relative to *https://api.hotdata.dev*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|

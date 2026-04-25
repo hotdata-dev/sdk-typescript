@@ -26,7 +26,8 @@ export interface UpsertWorkspaceContextRequest {
      */
     content: string;
     /**
-     * Unique name in the catalog (upsert key). Same field as in list/get responses.
+     * Upsert key in the catalog. Validated with dataset table-name rules (preserves case):
+     * ASCII letter or `_` first; then alphanumeric or `_` only; 1–128 chars; not a SQL reserved word.
      * @type {string}
      * @memberof UpsertWorkspaceContextRequest
      */

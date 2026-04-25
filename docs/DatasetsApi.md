@@ -1,6 +1,6 @@
 # DatasetsApi
 
-All URIs are relative to *https://app.hotdata.dev*
+All URIs are relative to *https://api.hotdata.dev*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -33,6 +33,10 @@ import type { CreateDatasetOperationRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
+    // To configure API key authorization: SessionId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -68,7 +72,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [SessionId](../README.md#SessionId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -104,6 +108,10 @@ import type { DeleteDatasetRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
+    // To configure API key authorization: SessionId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -139,7 +147,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [SessionId](../README.md#SessionId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -174,6 +182,8 @@ import type { GetDatasetRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -209,7 +219,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -244,6 +254,8 @@ import type { ListDatasetVersionsRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -285,7 +297,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -320,6 +332,10 @@ import type { ListDatasetsRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
+    // To configure API key authorization: SessionId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -358,7 +374,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [SessionId](../README.md#SessionId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -392,6 +408,10 @@ import type { UpdateDatasetOperationRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
+    // To configure API key authorization: SessionId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -430,7 +450,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [SessionId](../README.md#SessionId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

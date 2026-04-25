@@ -13,7 +13,7 @@
  */
 
 
-export const BASE_PATH = "https://app.hotdata.dev".replace(/\/+$/, "");
+export const BASE_PATH = "https://api.hotdata.dev".replace(/\/+$/, "");
 
 export interface ConfigurationParameters {
     basePath?: string; // override base path

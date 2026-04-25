@@ -1,6 +1,6 @@
 # UploadsApi
 
-All URIs are relative to *https://app.hotdata.dev*
+All URIs are relative to *https://api.hotdata.dev*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -27,6 +27,8 @@ import type { ListUploadsRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
@@ -62,7 +64,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -80,7 +82,7 @@ example().catch(console.error);
 
 ## uploadFile
 
-> UploadResponse uploadFile(requestBody, streaming)
+> UploadResponse uploadFile(body, streaming)
 
 Upload file
 
@@ -98,14 +100,16 @@ import type { UploadFileRequest } from '@hotdata/sdk';
 async function example() {
   console.log("🚀 Testing @hotdata/sdk SDK...");
   const config = new Configuration({ 
+    // To configure API key authorization: WorkspaceId
+    apiKey: "YOUR API KEY",
     // Configure HTTP bearer authorization: BearerAuth
     accessToken: "YOUR BEARER TOKEN",
   });
   const api = new UploadsApi(config);
 
   const body = {
-    // Array<number>
-    requestBody: ...,
+    // Blob
+    body: BINARY_DATA_HERE,
     // boolean | Stream upload to disk for large files (up to 20GB) (optional)
     streaming: true,
   } satisfies UploadFileRequest;
@@ -127,7 +131,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **requestBody** | `Array<number>` |  | |
+| **body** | `Blob` |  | |
 | **streaming** | `boolean` | Stream upload to disk for large files (up to 20GB) | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -136,7 +140,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[WorkspaceId](../README.md#WorkspaceId), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

@@ -11,6 +11,7 @@ export * from './QueryApi';
 export * from './QueryRunsApi';
 export * from './RefreshApi';
 export * from './ResultsApi';
+export * from './SandboxesApi';
 export * from './SavedQueriesApi';
 export * from './SecretsApi';
 export * from './UploadsApi';
